@@ -1,13 +1,19 @@
 # weixin-redpack
 微信发企业红包 for node.js
 
-### Installation
+## Installation
 ```
 npm install weixin-redpack
 ```
 
-### Usage
+## Requirements
+Mac Os X 系统请先安装ca根证书，否则会报签名错误
+> CA证书（rootca.pem）
+微信支付api服务器上也部署了证明微信支付身份的服务器证书，您在使用api进行调用时也需要验证所调用服务器及域名的真实性
+该文件为签署微信支付证书的权威机构的根证书，可以用来验证微信支付服务器证书的真实性
+某些环境和工具已经内置了若干权威机构的根证书，无需引用该证书也可以正常进行验证，这里提供给您在未内置所必须根证书的环境中载入使用
 
+## Usage
 先创建一个红包实例 Redpack，再调用 send() 发送红包，减少每次发红包的参数。
 ```js
 var Redpack = require('weixin-redpack').Redpack;
@@ -60,3 +66,4 @@ wxredpack.sendRedpack({
   console.log(result);
 });
 ```
+
